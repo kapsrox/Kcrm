@@ -25,7 +25,7 @@
 
         setTimeout(function(){
             $html.removeClass('loading').addClass('loaded');
-        }, 100);
+        }, 500);
 
         $.app.menu.init(compactMenu);
 
