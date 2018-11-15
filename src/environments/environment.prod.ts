@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://jcrmuat.rathi.com/api/ofacommon'
+  baseUrl: 'https://jcrmuat.rathi.com/api/ofacommon'
 };
