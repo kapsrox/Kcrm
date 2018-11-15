@@ -1,0 +1,30 @@
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+  <div class="main-menu-content">
+    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+      <ng-template ngFor let-Menu [ngForOf]= "MenuListNew" let-i="index">
+        <li *ngIf="whatClassIsIt(Menu.child.length, Menu.ModID)" class="has-sub" id="Menu_{{Menu.ModID}}">
+          <a *ngIf="Menu.ModBaseUrl == '#'" href="javascript:void(0);" title="{{Menu.ModName}}"><i class="{{Menu.ModIcon}}"></i><span class="menu-title" data-i18n="">{{Menu.ModName}}</span></a>
+          <a *ngIf="Menu.ModBaseUrl != '#'" href="{{Menu.ModBaseUrl}}" title="{{Menu.ModName}}"><i class="{{Menu.ModIcon}}"></i><span class="menu-title" data-i18n="">{{Menu.ModName}}</span></a>
+
+          <ul class="menu-content">
+              <li [ngClass]="{active: isActive(SubMenu.ModBaseUrl)}" *ngFor="let SubMenu of Menu.child">
+                  <a class="menu-item" routerLink="{{SubMenu.ModBaseUrl}}" title="{{SubMenu.ModName}}">{{SubMenu.ModName}}</a>
+              </li>
+          </ul>
+      </li>
+      </ng-template> 
+      
+      <!-- <li class="has-sub" id="Menu_{{Menu.ModID}}"  *ngFor="let Menu of MenuListNew">
+          <a *ngIf="Menu.ModBaseUrl == '#'" href="javascript:void(0);" title="{{Menu.ModName}}"><i class="{{Menu.ModIcon}}"></i><span class="menu-title" data-i18n="">{{Menu.ModName}}</span></a>
+          <a *ngIf="Menu.ModBaseUrl != '#'" href="{{Menu.ModBaseUrl}}" title="{{Menu.ModName}}"><i class="{{Menu.ModIcon}}"></i><span class="menu-title" data-i18n="">{{Menu.ModName}}</span></a>
+
+          <ul class="menu-content">
+              <li ng-class="{active: isActive(SubMenu.ModBaseUrl)}" *ngFor="let SubMenu of Menu.child">
+                  <a class="menu-item" href="{{SubMenu.ModBaseUrl}}" title="{{SubMenu.ModName}}">{{SubMenu.ModName}}</a>
+              </li>
+          </ul>
+      </li> -->
+  </ul>
+  </div>
+</div>
