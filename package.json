@@ -1,6 +1,9 @@
 {
   "name": "ofa-crm-app7",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.6.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
