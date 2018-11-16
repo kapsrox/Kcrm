@@ -11,9 +11,19 @@ export class AppComponent implements OnInit {
   title = 'OfaCrmApp7';
   ngOnInit(){
     $(document).ready(function () {
-      $.getScript("assets/app-assets/js/core/app-menu.js");
-      $.getScript("assets/app-assets/js/core/app.js");
+      
       
     });
+    $.when(
+      $.getScript("assets/app-assets/js/core/app-menu.js"),
+      
+      $.Deferred(function( deferred ){
+          $( deferred.resolve );
+      })
+      ).done(function(){
+        $.getScript("assets/app-assets/js/core/app.js")
+          //place your code here, the scripts are all loaded
+      
+      });
   }
 }
